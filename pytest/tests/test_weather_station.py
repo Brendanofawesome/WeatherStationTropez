@@ -26,7 +26,7 @@ def test_weather_station(test_case):
             os.remove(f)
 
     # Start process
-    proc = subprocess.Popen(["./src/main.exe"], stdin=subprocess.PIPE)
+    proc = subprocess.Popen(["./src/main.exe"], stdin=subprocess.PIPE, text=True)
     time.sleep(2)
     proc.stdin.write(test_case["input"].encode())
     proc.stdin.flush()
