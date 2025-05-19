@@ -29,7 +29,6 @@ def test_weather_station(test_case):
     proc = subprocess.Popen(["./src/main.exe"], stdin=subprocess.PIPE, text=True)
     time.sleep(2)
     proc.stdin.write(test_case["input"])
-    proc.stdin.flush()
     time.sleep(2)
     proc.kill()
 
