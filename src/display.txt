@@ -1,4 +1,0 @@
-Weather Station Data
-Time: 2025-05-01 17:05:58
-Readings:     25.014 °C     49.917 %   1013.270 hPa      0.000 m/s      1.131 ° 
-Averages:     24.991 °C     49.888 %   1013.248 hPa      0.008 m/s     -0.259 ° 

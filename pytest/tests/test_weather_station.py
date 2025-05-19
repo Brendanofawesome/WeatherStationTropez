@@ -6,7 +6,7 @@ import pytest
 import time
 from test_config import test_cases
 
-def parse_display(filepath="src/display.txt"):
+def parse_display(filepath="display.txt"):
     with open(filepath, "r") as f:
         lines = f.readlines()
         
@@ -33,7 +33,7 @@ def test_weather_station(test_case):
     time.sleep(2)
     proc.kill()
 
-    if not os.path.exists("src/display.txt"):
+    if not os.path.exists("display.txt"):
         pytest.fail("display.txt was not created")
 
     timestamp, readings = parse_display()
@@ -49,3 +49,8 @@ def test_weather_station(test_case):
             now = expectedTime
             dt = abs(time.mktime(now) - time.mktime(timestamp))
             assert dt <= check["tolerance"], f"{test_case['id']}: Timestamp offset too large ({dt:.2f}s)"
+    
+    #clean up temporary files
+    for f in ["display.txt", "storage.txt"]:
+        if os.path.exists(f):
+            os.remove(f)
